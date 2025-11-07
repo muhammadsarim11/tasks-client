@@ -9,60 +9,49 @@ export const CTASection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-20 px-4 bg-primary">
-      <div className="container max-w-4xl mx-auto text-center">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={isInView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.6 }}
-          className="w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden"
-        >
-          <img
-            src={profileCrossedArms}
-            alt="Eliyahu Frost"
-            className="w-full h-full object-cover"
-          />
-        </motion.div>
-
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-4xl md:text-5xl font-bold text-primary-foreground mb-6"
-        >
-          Ready to Transform?
-        </motion.h2>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-xl text-primary-foreground/80 mb-8 max-w-2xl mx-auto"
-        >
-          Book a free 15-minute call to discuss your goals and see if we're a good fit
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          <Button 
-            size="lg"
-            className="bg-accent hover:bg-accent/90 text-primary font-semibold px-12 py-6 text-lg rounded-full"
+    <section ref={ref} className="py-20 px-4 bg-white">
+      <div className="container max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-5 gap-8 items-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.6 }}
+            className="md:col-span-2"
           >
-            Book a Free 15-Minute Call
-          </Button>
-        </motion.div>
+            <img
+              src={profileCrossedArms}
+              alt="Eliyahu Frost"
+              className="w-full h-auto rounded-2xl"
+            />
+          </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-6 text-primary-foreground/60 text-sm"
-        >
-          No pressure, no commitment. Just an honest conversation about your goals.
-        </motion.p>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="md:col-span-3 space-y-6"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-primary">
+              Book a free 15-minute call.
+            </h2>
+
+            <Button 
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-white font-semibold px-12 py-6 rounded-lg"
+            >
+              Schedule now
+            </Button>
+
+            <div className="pt-4 border-t border-primary/20">
+              <p className="text-sm font-bold text-primary mb-2">CERTIFIED PERSONAL TRAINER & LIFE COACH</p>
+              <div className="flex gap-4 text-sm">
+                <a href="#" className="text-primary hover:text-primary/70 font-semibold">[WHATSAPP]</a>
+                <span className="text-primary/40">|</span>
+                <a href="#" className="text-primary hover:text-primary/70 font-semibold">[EMAIL]</a>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
